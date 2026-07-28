@@ -15,6 +15,34 @@ CONFIG_ROOT="$HOME/working/config"
 ln -s "$CONFIG_ROOT/tmux/tmux.conf" "$HOME/.tmux.conf"
 ```
 
+## 有効化する
+
+既存設定がある場合はバックアップする。
+
+```bash
+CONFIG_ROOT="$HOME/working/config"
+[ -e "$HOME/.tmux.conf" ] && mv "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak"
+```
+
+symlink を作る。
+
+```bash
+ln -s "$CONFIG_ROOT/tmux/tmux.conf" "$HOME/.tmux.conf"
+```
+
+有効化できているか確認する。
+
+```bash
+readlink "$HOME/.tmux.conf"
+tmux source-file "$HOME/.tmux.conf"
+```
+
+新しい tmux セッションで確認する。
+
+```bash
+tmux new -s config-test
+```
+
 ## 変更を書き込む
 
 設定を編集する。
@@ -51,4 +79,5 @@ git push
 CONFIG_ROOT="$HOME/working/config"
 git clone <repository-url> "$CONFIG_ROOT/tmux"
 ln -s "$CONFIG_ROOT/tmux/tmux.conf" "$HOME/.tmux.conf"
+tmux source-file "$HOME/.tmux.conf"
 ```
