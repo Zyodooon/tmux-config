@@ -5,6 +5,18 @@
 
 `Ctrl-b` を使う設定は `../tmux-ctrl-b.conf` にある。必要な場合は、リポジトリ直下の `README.md` を参照する。
 
+## 最初に覚える操作
+
+まずは次の操作を覚えると使いやすい。
+
+1. `tmux new -s work` で作業セッションを作る。
+2. `Prefix |` または `Prefix -` で画面を分割する。
+3. `Ctrl-h/j/k/l` でペインを移動する。
+4. `Prefix [` でコピーモードに入り、`Space` で選択を開始する。
+5. `y` で選択範囲をコピーし、`q` または `Esc` で終了する。
+6. `Prefix d` でセッションから抜ける。
+7. `tmux attach -t work` で作業を再開する。
+
 ## セッション
 
 ### 新しいセッションを作る
@@ -159,13 +171,3 @@ tmux list-panes -t work
 # tmuxサーバーを終了し、全セッションを閉じる
 tmux kill-server
 ```
-
-## 最初に覚える操作
-
-まずは次の操作を覚えると使いやすい。
-
-1. `tmux new -s work` で作業セッションを作る。
-2. `Prefix |` または `Prefix -` で画面を分割する。
-3. `Ctrl-h/j/k/l` でペインを移動する。
-4. `Prefix d` でセッションから抜ける。
-5. `tmux attach -t work` で作業を再開する。
