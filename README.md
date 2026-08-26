@@ -43,6 +43,25 @@ tmux source-file "$HOME/.tmux.conf"
 tmux new -s config-test
 ```
 
+## Ctrl-b版を使う
+
+標準の `Ctrl-b` をプレフィックスにした設定は `tmux-ctrl-b.conf` に用意している。
+現在の `tmux.conf` は変更せず、このファイルも自動では読み込まれない。
+
+一時的に内容を確認する場合:
+
+```bash
+tmux -f "$CONFIG_ROOT/tmux/tmux-ctrl-b.conf" new -s config-test-ctrl-b
+```
+
+この設定を標準設定として使う場合は、`$HOME/.tmux.conf` のリンク先を変更する。
+
+```bash
+CONFIG_ROOT="$HOME/working/config"
+ln -sfn "$CONFIG_ROOT/tmux/tmux-ctrl-b.conf" "$HOME/.tmux.conf"
+tmux source-file "$HOME/.tmux.conf"
+```
+
 ## 変更を書き込む
 
 設定を編集する。
