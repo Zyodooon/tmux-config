@@ -2,6 +2,16 @@
 
 tmux の設定ファイルを GitHub で管理するためのリポジトリ。
 
+## OS別ブランチ
+
+- `mac`: macOS用。通常版・Ctrl-b版とも `pbcopy` でコピーする。
+- `windows`: Windows / WSL用。通常版・Ctrl-b版とも `clip.exe` でコピーする。WSLから `clip.exe` を実行できる環境で使う。
+
+このブランチは `mac` 用。
+
+既存のチェックアウトは `git fetch origin` のあと `git switch mac` で切り替える。
+切り替え後、起動中のtmuxには `tmux source-file "$HOME/.tmux.conf"` で反映する。
+
 ## 置き場所
 
 - 実体: `<config-root>/tmux`
@@ -96,7 +106,7 @@ git push
 
 ```bash
 CONFIG_ROOT="$HOME/working/config"
-git clone <repository-url> "$CONFIG_ROOT/tmux"
+git clone --branch mac <repository-url> "$CONFIG_ROOT/tmux"
 ln -s "$CONFIG_ROOT/tmux/tmux.conf" "$HOME/.tmux.conf"
 tmux source-file "$HOME/.tmux.conf"
 ```
